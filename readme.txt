@@ -5,7 +5,7 @@ Requires at least: 2.8
 Tested up to: 2.8.3
 Stable tag: 1.0
 
-The very simplest of dashboard notepads.
+The very simplest of notepads for your Dashboard. 
 
 == Description ==
 
