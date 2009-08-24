@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Dashboard Notepad
-Plugin URI: http://sillybean.net/
+Plugin URI: http://sillybean.net/code/wordpress/dashboard-notepad/
 Description: The very simplest of notepads for your Dashboard. Based on <a href="http://www.contutto.com/">Alex G&uuml;nsche's</a> Headache With Pictures.
 Author: Stephanie Leary
 Version: 1.1
