@@ -3,7 +3,7 @@ Contributors: sillybean
 Tags: widget, dashboard, notes
 Requires at least: 2.8
 Tested up to: 2.8.3
-Stable tag: 1.0
+Stable tag: 1.1
 
 The very simplest of notepads for your Dashboard. 
 
@@ -24,5 +24,8 @@ This dashboard widget provides a simple notepad. The widget settings allow you t
 
 == Changelog ==
 
+= 1.1 =
+* Fixed bug in the role configuration.
+* The widget now disappears entirely for users who aren't allowed to read its contents. (August 24, 2009)
 = 1.0 =
 * First release (August 5, 2009)

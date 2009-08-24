@@ -4,7 +4,7 @@ Plugin Name: Dashboard Notepad
 Plugin URI: http://sillybean.net/
 Description: The very simplest of notepads for your Dashboard. Based on <a href="http://www.contutto.com/">Alex G&uuml;nsche's</a> Headache With Pictures.
 Author: Stephanie Leary
-Version: 1.0
+Version: 1.1
 Author URI: http://sillybean.net/
 */
 
@@ -27,26 +27,22 @@ Author URI: http://sillybean.net/
 
 function dashboard_notepad_widget() {
 	$options = dashboard_notepad_widget_options();
-	if (current_user_can('read')) {
-		if (!empty($_POST['dashboard_notepad_submit']) ) {
-				$dashboard_notepad = stripslashes($_POST['dashboard_notepad']);
-				$options['notes'] = $dashboard_notepad;
-				update_option('dashboard_notepad', $options);
-		} else
-			$dashboard_notepad = htmlspecialchars($options['notes'], ENT_QUOTES);
-		if (current_user_can('edit_dashboard')) $admin = TRUE;
-		else $admin = FALSE;
-		$form = '<form method="post" action="'.$_SERVER['PHP_SELF'].'">';
-		$form .= '<textarea id="dashboard_notepad" name="dashboard_notepad"';
-		if (!$admin) $form.= ' readonly="readonly"';
-		$form .= '>'. $dashboard_notepad.'</textarea>';
-		if ($admin) $form .= '<p><input type="submit" value="' . __('Save Notes') . '" class="button widget-control-save"></p> 
-			<input type="hidden" name="dashboard_notepad_submit" value="true" />';
-		$form .= '</form>';
-		echo $form;
-	}
-	else
-		return false;
+	if (!empty($_POST['dashboard_notepad_submit']) ) {
+			$dashboard_notepad = stripslashes($_POST['dashboard_notepad']);
+			$options['notes'] = $dashboard_notepad;
+			update_option('dashboard_notepad', $options);
+	} else
+		$dashboard_notepad = htmlspecialchars($options['notes'], ENT_QUOTES);
+	if (current_user_can($options['can_edit'])) $admin = TRUE;
+	else $admin = FALSE;
+	$form = '<form method="post" action="'.$_SERVER['PHP_SELF'].'">';
+	$form .= '<textarea id="dashboard_notepad" name="dashboard_notepad"';
+	if (!$admin) $form.= ' readonly="readonly"';
+	$form .= '>'. $dashboard_notepad.'</textarea>';
+	if ($admin) $form .= '<p><input type="submit" value="' . __('Save Notes') . '" class="button widget-control-save"></p> 
+		<input type="hidden" name="dashboard_notepad_submit" value="true" />';
+	$form .= '</form>';
+	echo $form;
 }
 
 function dashboard_notepad_css() {
@@ -56,7 +52,9 @@ function dashboard_notepad_css() {
 function dashboard_notepad_widget_setup() {
 	$options = dashboard_notepad_widget_options();
 	if (!is_array($options)) $options = array('title' => 'Notepad');
-    wp_add_dashboard_widget( 'dashboard_notepad_widget_id', $options['notepad_title'], 'dashboard_notepad_widget', 'dashboard_notepad_widget_control');
+    if (current_user_can($options['can_read'])) {
+		wp_add_dashboard_widget( 'dashboard_notepad_widget_id', $options['notepad_title'], 'dashboard_notepad_widget', 'dashboard_notepad_widget_control');
+	}
 }
 
 add_action("admin_head", 'dashboard_notepad_css');
