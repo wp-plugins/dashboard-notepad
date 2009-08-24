@@ -2,7 +2,7 @@
 Contributors: sillybean
 Tags: widget, dashboard, notes
 Requires at least: 2.8
-Tested up to: 2.8.3
+Tested up to: 2.8.4
 Stable tag: 1.1
 
 The very simplest of notepads for your Dashboard. 
