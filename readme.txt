@@ -30,6 +30,7 @@ New in 1.2: You can now display the contents of your notepad using a template ta
 
 = 1.2 =
 * New template tag and shortcode to display notes publicly.
+* Security fix, as a result of the new tags: now checking whether users can post unfiltered HTML in the notes.
 * Added translation support.
 * Fixed CSS bug that threw off column widths. (November 14, 2009)
 = 1.1 =
