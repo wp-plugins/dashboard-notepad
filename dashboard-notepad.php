@@ -90,9 +90,9 @@ function dashboard_notepad_widget_control() {
         <select id="can_edit" name="can_edit">
 			<option value="edit_dashboard" <?php selected('edit_dashboard', $options['can_edit']); ?>><?php _e('Admins', 'dashboard-notepad'); ?></option>
 			<option value="edit_pages" <?php selected('edit_pages', $options['can_edit']); ?>><?php _e('Editors', 'dashboard-notepad'); ?></option>
-            <option value="publish_posts" <?php selected('publish_posts', $options['can_edit']); ?>><?php _e('Authors', 'dashboard-notepad'); ?></option>
-            <option value="edit_posts" <?php selected('edit_posts', $options['can_edit']); ?>><?php _e('Contributors', 'dashboard-notepad'); ?></option>
-            <option value="read" <?php selected('read', $options['can_edit']); ?>><?php _e('Subscribers', 'dashboard-notepad'); ?></option>
+			<option value="publish_posts" <?php selected('publish_posts', $options['can_edit']); ?>><?php _e('Authors', 'dashboard-notepad'); ?></option>
+			<option value="edit_posts" <?php selected('edit_posts', $options['can_edit']); ?>><?php _e('Contributors', 'dashboard-notepad'); ?></option>
+			<option value="read" <?php selected('read', $options['can_edit']); ?>><?php _e('Subscribers', 'dashboard-notepad'); ?></option>
 		</select>
         <label for="can_edit"><?php _e( 'and above can <strong>edit</strong> the notes.' , 'dashboard-notepad'); ?></label>
 	</p>
@@ -100,9 +100,9 @@ function dashboard_notepad_widget_control() {
 		<select id="can_read" name="can_read">
 			<option value="edit_dashboard" <?php selected('edit_dashboard', $options['can_read']); ?>><?php _e('Admins', 'dashboard-notepad'); ?></option>
 			<option value="edit_pages" <?php selected('edit_pages', $options['can_read']); ?>><?php _e('Editors', 'dashboard-notepad'); ?></option>
-            <option value="publish_posts" <?php selected('publish_posts', $options['can_read']); ?>><?php _e('Authors', 'dashboard-notepad'); ?></option>
-            <option value="edit_posts" <?php selected('edit_posts', $options['can_read']); ?>><?php _e('Contributors', 'dashboard-notepad'); ?></option>
-            <option value="read" <?php selected('read', $options['can_read']); ?>><?php _e('Subscribers', 'dashboard-notepad'); ?></option>
+			<option value="publish_posts" <?php selected('publish_posts', $options['can_read']); ?>><?php _e('Authors', 'dashboard-notepad'); ?></option>
+			<option value="edit_posts" <?php selected('edit_posts', $options['can_read']); ?>><?php _e('Contributors', 'dashboard-notepad'); ?></option>
+			<option value="read" <?php selected('read', $options['can_read']); ?>><?php _e('Subscribers', 'dashboard-notepad'); ?></option>
 		</select>
         <label for="can_read"><?php _e( 'and above can <strong>read</strong> the notes.' , 'dashboard-notepad'); ?></label>
 	</p>
