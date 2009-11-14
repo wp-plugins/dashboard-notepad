@@ -2,8 +2,8 @@
 Contributors: sillybean
 Tags: widget, dashboard, notes
 Requires at least: 2.8
-Tested up to: 2.8.4
-Stable tag: 1.1
+Tested up to: 2.9
+Stable tag: 1.2
 
 The very simplest of notepads for your Dashboard. 
 
@@ -11,11 +11,15 @@ The very simplest of notepads for your Dashboard.
 
 This dashboard widget provides a simple notepad. The widget settings allow you to choose which roles can edit the notes, and which roles can merely read them.
 
+New in 1.2: You can now display the contents of your notepad using a template tag and/or shortcode. The widget permissions apply to these tags as well: only users with permission to read the notes will see the notes on the front end.
+
 == Installation ==
 
 1. Upload the plugin directory to `/wp-content/plugins/` 
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Go to your Dashboard and configure the widget by clicking the link in its upper right corner.
+1. To display your notes in a theme file, use the `<?php dashboard_notes(); ?>` template tag.
+1. To display your notes in a post, page, or text widget, use the [dashboard_notes] shortcode. 
 
 == Screenshots ==
 
