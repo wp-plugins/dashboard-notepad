@@ -4,7 +4,7 @@ Plugin Name: Dashboard Notepad
 Plugin URI: http://sillybean.net/code/wordpress/dashboard-notepad/
 Description: The very simplest of notepads for your Dashboard. Based on <a href="http://www.contutto.com/">Alex G&uuml;nsche's</a> Headache With Pictures. You can use the <code>&lt;?php dashboard_notes(); ?&gt;</code> template tag or the <code>[dashboard_notes]</code> shortcode to display your notes publicly.
 Author: Stephanie Leary
-Version: 1.2
+Version: 1.21
 Author URI: http://sillybean.net/
 */
 
@@ -103,6 +103,7 @@ function dashboard_notepad_widget_control() {
 			<option value="publish_posts" <?php selected('publish_posts', $options['can_read']); ?>><?php _e('Authors', 'dashboard-notepad'); ?></option>
 			<option value="edit_posts" <?php selected('edit_posts', $options['can_read']); ?>><?php _e('Contributors', 'dashboard-notepad'); ?></option>
 			<option value="read" <?php selected('read', $options['can_read']); ?>><?php _e('Subscribers', 'dashboard-notepad'); ?></option>
+            <option value="guest" <?php selected('guest', $options['can_read']); ?>><?php _e('The Public', 'dashboard-notepad'); ?></option>
 		</select>
         <label for="can_read"><?php _e( 'and above can <strong>read</strong> the notes.' , 'dashboard-notepad'); ?></label>
 	</p>
@@ -116,7 +117,7 @@ function dashboard_notepad_widget_control() {
 // show dashboard notes on front end
 function dashboard_notes() {
 	$options = dashboard_notepad_widget_options();
-	if (current_user_can($options['can_read'])) {
+	if (current_user_can($options['can_read']) || ($options['can_read'] == 'guest')) {
 		if ($options['autop'] == 'yes')
 			echo wpautop($options['notes']);
 		else echo $options['notes'];
