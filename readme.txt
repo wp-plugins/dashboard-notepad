@@ -3,7 +3,7 @@ Contributors: sillybean
 Tags: widget, dashboard, notes
 Requires at least: 2.8
 Tested up to: 2.9
-Stable tag: 1.21
+Stable tag: 1.22
 
 The very simplest of notepads for your Dashboard. 
 
@@ -28,6 +28,8 @@ New in 1.2: You can now display the contents of your notepad using a template ta
 
 == Changelog ==
 
+= 1.22 =
+* Fixed bug where the dashboard widget disappeared when unregistered users were allowed to read the notes. (November 17, 2009)
 = 1.21 =
 * Added option to allow the public (unregistered users) read the notes. (November 16, 2009)
 = 1.2 =
