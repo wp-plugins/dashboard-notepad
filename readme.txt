@@ -3,7 +3,7 @@ Contributors: sillybean
 Tags: widget, dashboard, notes
 Requires at least: 2.8
 Tested up to: 2.9
-Stable tag: 1.22
+Stable tag: 1.23
 
 The very simplest of notepads for your Dashboard. 
 
@@ -11,7 +11,7 @@ The very simplest of notepads for your Dashboard.
 
 This dashboard widget provides a simple notepad. The widget settings allow you to choose which roles can edit the notes, and which roles can merely read them.
 
-New in 1.2: You can now display the contents of your notepad using a template tag and/or shortcode. The widget permissions apply to these tags as well: only users with permission to read the notes will see the notes on the front end.
+New in 1.2: You can now display the contents of your notepad using a template tag and/or shortcode. The widget permissions apply to these tags as well: only users with permission to read the notes will see the notes on the front end. New in 1.23: you can use div#dashboard-notes in your theme's CSS file to style the notes.
 
 == Installation ==
 
@@ -19,7 +19,7 @@ New in 1.2: You can now display the contents of your notepad using a template ta
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Go to your Dashboard and configure the widget by clicking the link in its upper right corner.
 1. To display your notes in a theme file, use the `<?php dashboard_notes(); ?>` template tag.
-1. To display your notes in a post, page, or text widget, use the [dashboard_notes] shortcode. (To use it in a widget, you'll have to enable shortcode parsing in text widgets, if you haven't already. Add `add_filter('widget_text', 'do_shortcode');` to your functions.php file.)
+1. To display your notes in a post, page, or text widget, use the [dashboard_notes] shortcode. (To use it in a widget, you'll have to enable shortcode parsing in text widgets, if you haven't already. Add `add_filter('widget_text', 'do_shortcode');` to your functions.php file.) You can use div#dashboard-notes in your theme's CSS file to style the notes.
 
 == Screenshots ==
 
@@ -28,6 +28,8 @@ New in 1.2: You can now display the contents of your notepad using a template ta
 
 == Changelog ==
 
+= 1.23 =
+* Publicly displayed notes are now surrounded by a div tag with an ID ('dashboard-notes') for styling (November 18, 2009)
 = 1.22 =
 * Fixed bug where the dashboard widget disappeared when unregistered users were allowed to read the notes. (November 17, 2009)
 = 1.21 =
