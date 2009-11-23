@@ -3,7 +3,7 @@ Contributors: sillybean
 Tags: widget, dashboard, notes
 Requires at least: 2.8
 Tested up to: 2.9
-Stable tag: 1.23
+Stable tag: 1.24
 
 The very simplest of notepads for your Dashboard. 
 
@@ -14,6 +14,10 @@ This dashboard widget provides a simple notepad. The widget settings allow you t
 New in 1.2: You can now display the contents of your notepad using a template tag and/or shortcode. The widget permissions apply to these tags as well: only users with permission to read the notes will see the notes on the front end. 
 
 New in 1.23: you can use div#dashboard-notes in your theme's CSS file to style the notes.
+
+= Translations =
+
+Belorussian (be_BY) by <a href="http://fatcow.com">FatCow</a>.
 
 == Installation ==
 
@@ -30,6 +34,8 @@ New in 1.23: you can use div#dashboard-notes in your theme's CSS file to style t
 
 == Changelog ==
 
+= 1.24 =
+* Belorussian (be_BY) translation by <a href="http://fatcow.com">FatCow</a>. (November 22, 2009)
 = 1.23 =
 * Publicly displayed notes are now surrounded by a div tag with an ID ('dashboard-notes') for styling (November 18, 2009)
 = 1.22 =
