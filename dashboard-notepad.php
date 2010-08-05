@@ -59,7 +59,7 @@ function dashboard_notepad_widget_setup() {
 	}
 }
 
-add_action("admin_head", 'dashboard_notepad_css');
+add_action("admin_head-index.php", 'dashboard_notepad_css'); 			 // add styles to Dashboard only
 add_action('wp_dashboard_setup', 'dashboard_notepad_widget_setup');
 
 
