@@ -2,18 +2,16 @@
 Contributors: sillybean
 Tags: widget, dashboard, notes
 Requires at least: 2.8
-Tested up to: 2.9
-Stable tag: 1.24
+Tested up to: 3.1
+Stable tag: 1.30
 
 The very simplest of notepads for your Dashboard. 
 
 == Description ==
 
-This dashboard widget provides a simple notepad. The widget settings allow you to choose which roles can edit the notes, and which roles can merely read them.
+This dashboard widget provides a simple notepad. The widget settings allow you to choose which roles can edit the notes, and which roles can merely read them. Version 1.30 also integrates with the <a href="http://wordpress.org/extend/plugins/members/">Members plugin</a> for role settings.
 
-New in 1.2: You can now display the contents of your notepad using a template tag and/or shortcode. The widget permissions apply to these tags as well: only users with permission to read the notes will see the notes on the front end. 
-
-New in 1.23: you can use div#dashboard-notes in your theme's CSS file to style the notes.
+You can display the contents of your notepad using a template tag and/or shortcode. The widget permissions apply to these tags as well: only users with permission to read the notes will see the notes on the front end. You can use `div#dashboard-notes` in your theme's CSS file to style the notes.
 
 = Translations =
 
@@ -25,7 +23,7 @@ Belorussian (be_BY) by <a href="http://fatcow.com">FatCow</a>.
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Go to your Dashboard and configure the widget by clicking the link in its upper right corner.
 1. To display your notes in a theme file, use the `<?php dashboard_notes(); ?>` template tag.
-1. To display your notes in a post, page, or text widget, use the [dashboard_notes] shortcode. (To use it in a widget, you'll have to enable shortcode parsing in text widgets, if you haven't already. Add `add_filter('widget_text', 'do_shortcode');` to your functions.php file.) You can use div#dashboard-notes in your theme's CSS file to style the notes.
+1. To display your notes in a post, page, or text widget, use the `[dashboard_notes]` shortcode. (To use it in a widget, you'll have to enable shortcode parsing in text widgets, if you haven't already. Add `add_filter('widget_text', 'do_shortcode');` to your functions.php file.) You can use `div#dashboard-notes` in your theme's CSS file to style the notes.
 
 == Screenshots ==
 
@@ -34,6 +32,8 @@ Belorussian (be_BY) by <a href="http://fatcow.com">FatCow</a>.
 
 == Changelog ==
 
+= 1.30 =
+* Fixed the roles to work correctly and added <a href="http://wordpress.org/extend/plugins/members/">Members</a> integration. (December 15, 2010)
 = 1.24 =
 * Belorussian (be_BY) translation by <a href="http://fatcow.com">FatCow</a>. (November 22, 2009)
 = 1.23 =
