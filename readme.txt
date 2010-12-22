@@ -3,13 +3,13 @@ Contributors: sillybean
 Tags: widget, dashboard, notes
 Requires at least: 2.8
 Tested up to: 3.1
-Stable tag: 1.31
+Stable tag: 1.32
 
 The very simplest of notepads for your Dashboard. 
 
 == Description ==
 
-This dashboard widget provides a simple notepad. The widget settings allow you to choose which roles can edit the notes, and which roles can merely read them. Version 1.30 also integrates with the <a href="http://wordpress.org/extend/plugins/members/">Members plugin</a> for role settings.
+This dashboard widget provides a simple notepad. The widget settings allow you to choose which roles can edit the notes, and which roles can merely read them. Version 1.30 also adds support for custom roles and integrates with the <a href="http://wordpress.org/extend/plugins/members/">Members plugin</a> for role settings.
 
 You can display the contents of your notepad using a template tag and/or shortcode. The widget permissions apply to these tags as well: only users with permission to read the notes will see the notes on the front end. You can use `div#dashboard-notes` in your theme's CSS file to style the notes.
 
@@ -32,10 +32,12 @@ Belorussian (be_BY) by <a href="http://fatcow.com">FatCow</a>.
 
 == Changelog ==
 
+= 1.32 =
+* Fixed a problem with the widget options that could cause a couple of error messages to appear on some servers.
 = 1.31 =
 * This version should seamlessly update the role options from the previous versions.
 = 1.30 =
-* Fixed the roles to work correctly and added <a href="http://wordpress.org/extend/plugins/members/">Members</a> integration. (December 15, 2010)
+* Fixed the roles to work correctly, added support for custom roles, and added <a href="http://wordpress.org/extend/plugins/members/">Members</a> integration. (December 15, 2010)
 = 1.24 =
 * Belorussian (be_BY) translation by <a href="http://fatcow.com">FatCow</a>. (November 22, 2009)
 = 1.23 =
