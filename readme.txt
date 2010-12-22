@@ -3,7 +3,7 @@ Contributors: sillybean
 Tags: widget, dashboard, notes
 Requires at least: 2.8
 Tested up to: 3.1
-Stable tag: 1.30
+Stable tag: 1.31
 
 The very simplest of notepads for your Dashboard. 
 
@@ -32,6 +32,8 @@ Belorussian (be_BY) by <a href="http://fatcow.com">FatCow</a>.
 
 == Changelog ==
 
+= 1.31 =
+* This version should seamlessly update the role options from the previous versions.
 = 1.30 =
 * Fixed the roles to work correctly and added <a href="http://wordpress.org/extend/plugins/members/">Members</a> integration. (December 15, 2010)
 = 1.24 =
