@@ -3,7 +3,7 @@ Contributors: sillybean
 Tags: widget, dashboard, notes
 Requires at least: 2.8
 Tested up to: 3.1
-Stable tag: 1.32
+Stable tag: 1.33
 
 The very simplest of notepads for your Dashboard. 
 
@@ -32,6 +32,8 @@ Belorussian (be_BY) by <a href="http://fatcow.com">FatCow</a>.
 
 == Changelog ==
 
+= 1.33 =
+* Fixed a problem where the widget would not appear for some users after upgrading from 1.24.
 = 1.32 =
 * Fixed a problem with the widget options that could cause a couple of error messages to appear on some servers.
 = 1.31 =
