@@ -3,7 +3,7 @@ Contributors: sillybean
 Tags: widget, dashboard, notes
 Requires at least: 2.8
 Tested up to: 3.1
-Stable tag: 1.33
+Stable tag: 1.34
 
 The very simplest of notepads for your Dashboard. 
 
@@ -16,6 +16,7 @@ You can display the contents of your notepad using a template tag and/or shortco
 = Translations =
 
 Belorussian (be_BY) by <a href="http://fatcow.com">FatCow</a>.
+Bulgarian (bg_BG) by <a href="http://www.siteground.com/">SiteGround</a>.
 
 == Installation ==
 
@@ -32,6 +33,8 @@ Belorussian (be_BY) by <a href="http://fatcow.com">FatCow</a>.
 
 == Changelog ==
 
+= 1.34 =
+* Bulgarian translation
 = 1.33 =
 * Fixed a problem where the widget would not appear for some users after upgrading from 1.24.
 = 1.32 =
