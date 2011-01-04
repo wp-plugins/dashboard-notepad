@@ -15,8 +15,8 @@ You can display the contents of your notepad using a template tag and/or shortco
 
 = Translations =
 
-Belorussian (be_BY) by <a href="http://fatcow.com">FatCow</a>.
-Bulgarian (bg_BG) by <a href="http://www.siteground.com/">SiteGround</a>.
+* Belorussian (be_BY) by <a href="http://fatcow.com">FatCow</a>.
+* Bulgarian (bg_BG) by <a href="http://www.siteground.com/">SiteGround</a>.
 
 == Installation ==
 
