@@ -13,10 +13,12 @@ This dashboard widget provides a simple notepad. The widget settings allow you t
 
 You can display the contents of your notepad using a template tag and/or shortcode. The widget permissions apply to these tags as well: only users with permission to read the notes will see the notes on the front end. You can use `div#dashboard-notes` in your theme's CSS file to style the notes.
 
-= Translations =
+== Translations ==
 
 * Belorussian (be_BY) by <a href="http://fatcow.com">FatCow</a>.
 * Bulgarian (bg_BG) by <a href="http://www.siteground.com/">SiteGround</a>.
+
+If you would like to send me a translation, please write to me through <a href="http://sillybean.net/about/contact/">my contact page</a>. Let me know which plugin you've translated and how you would like to be credited. I will write you back so you can attach the files in your reply.
 
 == Installation ==
 
