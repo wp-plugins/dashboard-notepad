@@ -4,7 +4,7 @@ Plugin Name: Dashboard Notepad
 Plugin URI: http://sillybean.net/code/wordpress/dashboard-notepad/
 Description: The very simplest of notepads for your Dashboard. Based on <a href="http://www.contutto.com/">Alex G&uuml;nsche's</a> Headache With Pictures. You can use the <code>&lt;?php dashboard_notes(); ?&gt;</code> template tag or the <code>[dashboard_notes]</code> shortcode to display your notes publicly.
 Author: Stephanie Leary
-Version: 1.34
+Version: 1.35
 Author URI: http://sillybean.net/
 */
 
@@ -35,7 +35,7 @@ function dashboard_notepad_widget() {
 			update_option('dashboard_notepad', $options);
 	} else
 		$dashboard_notepad = htmlspecialchars($options['notes'], ENT_QUOTES);
-	$form = '<form method="post" action="'.$_SERVER['PHP_SELF'].'">';
+	$form = '<form method="post" action="'.admin_url().'">';
 	$form .= '<textarea id="dashboard_notepad" name="dashboard_notepad"';
 	if (!current_user_can('edit_dashboard_notes')) $form.= ' readonly="readonly"';
 	$form .= '>'. $options['notes'].'</textarea>';
