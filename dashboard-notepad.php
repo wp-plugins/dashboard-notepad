@@ -4,7 +4,7 @@ Plugin Name: Dashboard Notepad
 Plugin URI: http://sillybean.net/code/wordpress/dashboard-notepad/
 Description: The very simplest of notepads for your Dashboard. Based on <a href="http://www.contutto.com/">Alex G&uuml;nsche's</a> Headache With Pictures. You can use the <code>&lt;?php dashboard_notes(); ?&gt;</code> template tag or the <code>[dashboard_notes]</code> shortcode to display your notes publicly.
 Author: Stephanie Leary
-Version: 1.35
+Version: 1.36
 Author URI: http://sillybean.net/
 */
 
@@ -36,7 +36,7 @@ function dashboard_notepad_widget() {
 	} else
 		$dashboard_notepad = htmlspecialchars($options['notes'], ENT_QUOTES);
 	$form = '<form method="post" action="'.admin_url().'">';
-	$form .= '<textarea id="dashboard_notepad" name="dashboard_notepad"';
+	$form .= '<textarea id="dashboard_notepad" name="dashboard_notepad" rows="'.(int)$options['notepad_size'].'"';
 	if (!current_user_can('edit_dashboard_notes')) $form.= ' readonly="readonly"';
 	$form .= '>'. $options['notes'].'</textarea>';
 	if (current_user_can('edit_dashboard_notes')) $form .= '<p><input type="submit" value="' . __('Save Notes', 'dashboard-notepad') . '" class="button widget-control-save"></p> 
@@ -48,7 +48,7 @@ function dashboard_notepad_widget() {
 function dashboard_notepad_css() {
 	?>
 	<style type="text/css">
-		textarea#dashboard_notepad { width: 95%; height: 12em; background: #fcfcfc; }
+		textarea#dashboard_notepad { width: 95%; background: #fcfcfc; }
 		div.dashboard-role-column { float: left; width: 47%; margin-left: 2%; }
 		p.dashboard-note-clear { clear: both; margin-top: 1em; }
 	</style>
@@ -71,6 +71,7 @@ function dashboard_notepad_widget_options() {
 		'edit_dashboard_notes' => array('administrator','editor'), 
 		'read_dashboard_notes' => array('administrator','editor','contributor','author','subscriber'), 
 		'notepad_title' => __('Notepad', 'dashboard-notepad'), 
+		'notepad_size' => 8,
 		'autop' => '');
 	$options = get_option('dashboard_notepad');
 	if (!is_array($options)) $options = array();
@@ -123,13 +124,18 @@ function dashboard_notepad_widget_control() {
 		}
 		if ( isset($_POST['notepad_title']) )
 			$options['notepad_title'] = $_POST['notepad_title'];
+		if ( isset($_POST['notepad_size']) )
+			$options['notepad_size'] = $_POST['notepad_size'];
 		$options['autop'] = $_POST['autop'];
 		update_option( 'dashboard_notepad', $options );
 	}
 	$myroles = get_editable_roles();
 ?>
 	<p><label for="notepad_title"><?php _e( 'Widget title:' , 'dashboard-notepad'); ?></label>
-		<input type="text" id="notepad_title" name="notepad_title" value="<?php echo $options['notepad_title']; ?>" /></p>
+		<input type="text" id="notepad_title" name="notepad_title" value="<?php echo $options['notepad_title']; ?>" /> &nbsp;&nbsp;&nbsp;
+	<label for="notepad_size"><?php _e( 'Widget height:' , 'dashboard-notepad'); ?></label>
+		<input type="text" id="notepad_size" name="notepad_size" value="<?php echo $options['notepad_size']; ?>" size="4" />	<?php _e( 'lines' , 'dashboard-notepad'); ?>
+	</p>
 	<div class="dashboard-role-column">
     <p><?php _e( 'Users in these roles can <strong>edit</strong> the notes:' , 'dashboard-notepad'); ?></p>
 		<ul>

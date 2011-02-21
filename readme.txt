@@ -3,7 +3,7 @@ Contributors: sillybean
 Tags: widget, dashboard, notes
 Requires at least: 2.8
 Tested up to: 3.1
-Stable tag: 1.35
+Stable tag: 1.36
 
 The very simplest of notepads for your Dashboard. 
 
@@ -37,6 +37,8 @@ If you would like to send me a translation, please write to me through <a href="
 
 == Changelog ==
 
+= 1.36 =
+* Added an option to set the height of the notepad.
 = 1.35 =
 * Fixed a bug where submitting the form redirected you to the wrong site when used in a multsite/subdirectory installation.
 = 1.34 =
