@@ -2,8 +2,8 @@
 Contributors: sillybean
 Tags: widget, dashboard, notes
 Requires at least: 2.8
-Tested up to: 3.1
-Stable tag: 1.36
+Tested up to: 3.2
+Stable tag: 1.37
 
 The very simplest of notepads for your Dashboard. 
 
@@ -17,6 +17,7 @@ You can display the contents of your notepad using a template tag and/or shortco
 
 * Belorussian (be_BY) by <a href="http://fatcow.com">FatCow</a>.
 * Bulgarian (bg_BG) by <a href="http://www.siteground.com/">SiteGround</a>.
+* German (de_DE) by Guido Kerkewitz
 
 == Translations ==
 
@@ -37,12 +38,14 @@ If you would like to send me a translation, please write to me through <a href="
 
 == Changelog ==
 
+= 1.37 =
+* German (de_DE) translation by Guido Kerkewitz.
 = 1.36 =
 * Added an option to set the height of the notepad.
 = 1.35 =
 * Fixed a bug where submitting the form redirected you to the wrong site when used in a multsite/subdirectory installation.
 = 1.34 =
-* Bulgarian translation
+* Bulgarian (bg_BG) translation by <a href="http://www.siteground.com/">SiteGround</a>.
 = 1.33 =
 * Fixed a problem where the widget would not appear for some users after upgrading from 1.24.
 = 1.32 =
