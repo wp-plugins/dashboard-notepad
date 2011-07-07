@@ -3,7 +3,7 @@ Contributors: sillybean
 Tags: widget, dashboard, notes
 Requires at least: 2.8
 Tested up to: 3.2
-Stable tag: 1.37
+Stable tag: 1.38
 
 The very simplest of notepads for your Dashboard. 
 
@@ -18,6 +18,7 @@ You can display the contents of your notepad using a template tag and/or shortco
 * Belorussian (be_BY) by <a href="http://fatcow.com">FatCow</a>.
 * Bulgarian (bg_BG) by <a href="http://www.siteground.com/">SiteGround</a>.
 * German (de_DE) by Guido Kerkewitz
+* Swedish (se_SV) by <a href="http://www.rabatt.se">Rabatt</a>
 
 == Translations ==
 
@@ -38,6 +39,9 @@ If you would like to send me a translation, please write to me through <a href="
 
 == Changelog ==
 
+= 1.38 =
+* Swedish (se_SV) translation by <a href="http://www.rabatt.se">Rabatt</a>
+* Corrected German translation.
 = 1.37 =
 * German (de_DE) translation by Guido Kerkewitz.
 = 1.36 =
