@@ -143,8 +143,7 @@ function dashboard_notepad_widget_control() {
 	<div class="dashboard-role-column">
     <p><?php _e( 'Users in these roles can <strong>edit</strong> the notes:' , 'dashboard-notepad'); ?></p>
 		<ul>
-			<?php foreach ($myroles as $role) { 
-				$slug = strtolower($role['name']); ?>
+			<?php foreach ($myroles as $slug => $role) { ?>
 				<li><label><input type="checkbox" name="edit_dashboard_notes[]" value="<?php esc_attr_e($slug); ?>" <?php if (in_array($slug, $options['edit_dashboard_notes'])) echo 'checked="checked"'; ?> /> <?php esc_html_e($role['name']); ?><label></li>
 			<?php } ?>
         </ul>
@@ -152,8 +151,7 @@ function dashboard_notepad_widget_control() {
 	<div class="dashboard-role-column">
     <p><?php _e( 'Users in these roles can <strong>read</strong> the notes:' , 'dashboard-notepad'); ?></p>
 		<ul>
-			<?php foreach ($myroles as $role) { 
-				$slug = strtolower($role['name']); ?>
+			<?php foreach ($myroles as $slug => $role) { ?>
 				<li><label><input type="checkbox" name="read_dashboard_notes[]" value="<?php esc_attr_e($slug); ?>" <?php if (in_array($slug, $options['read_dashboard_notes'])) echo 'checked="checked"'; ?> /> <?php esc_html_e($role['name']); ?><label></li>
 			<?php } ?>
             <li><label><input type="checkbox" name="read_dashboard_notes[]" value="guest" <?php if (in_array('guest', $options['read_dashboard_notes'])) echo 'checked="checked"'; ?> /> <?php _e('The Public', 'dashboard-notepad'); ?><label></li>
