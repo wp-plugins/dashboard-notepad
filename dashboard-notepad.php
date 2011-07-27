@@ -4,7 +4,7 @@ Plugin Name: Dashboard Notepad
 Plugin URI: http://sillybean.net/code/wordpress/dashboard-notepad/
 Description: The very simplest of notepads for your Dashboard. Based on <a href="http://www.contutto.com/">Alex G&uuml;nsche's</a> Headache With Pictures. You can use the <code>&lt;?php dashboard_notes(); ?&gt;</code> template tag or the <code>[dashboard_notes]</code> shortcode to display your notes publicly.
 Author: Stephanie Leary
-Version: 1.30
+Version: 1.31a
 Author URI: http://sillybean.net/
 */
 
@@ -67,10 +67,39 @@ add_action("admin_head-index.php", 'dashboard_notepad_css'); 			 // add styles t
 add_action('wp_dashboard_setup', 'dashboard_notepad_widget_setup');
 
 function dashboard_notepad_widget_options() {
-	$defaults = array( 'notes' => __('Enter here whatever is on your mind.', 'dashboard-notepad'), 'edit_dashboard_notes' => array('administrator','editor'), 'read_dashboard_notes' => array('administrator','editor','contributor','author','subscriber'), 
-		'notepad_title' => __('Notepad', 'dashboard-notepad'), 'autop' => '');
+//*
+	$defaults = array( 'notes' => __('Enter here whatever is on your mind.', 'dashboard-notepad'), 
+		'edit_dashboard_notes' => array('administrator','editor'), 
+		'read_dashboard_notes' => array('administrator','editor','contributor','author','subscriber'), 
+		'notepad_title' => __('Notepad', 'dashboard-notepad'), 
+		'autop' => '');
+/**/
 	$options = get_option('dashboard_notepad');
 	if (!is_array($options)) $options = array();
+/*
+	// upgrade from old options
+	if (isset($options['can_read'])) {
+		switch ($options['can_read']) {
+			case 'edit_dashboard': $options['read_dashboard_notes'] = array_merge($options['read_dashboard_notes'], array('administrator')); break;
+			case 'edit_pages': $options['read_dashboard_notes'] = array_merge($options['read_dashboard_notes'], array('editor')); break;
+			case 'publish_posts': $options['read_dashboard_notes'] = array_merge($options['read_dashboard_notes'], array('author')); break;
+			case 'edit_posts': $options['read_dashboard_notes'] = array_merge($options['read_dashboard_notes'], array('contributor')); break;
+			case 'read': $options['read_dashboard_notes'] = array_merge($options['read_dashboard_notes'], array('subscriber')); break;
+			case 'guest': $options['read_dashboard_notes'] = array_merge($options['read_dashboard_notes'], array('guest')); break;
+		}
+		unset($options['can_read']);
+	}
+	if (isset($options['can_edit'])) {
+		switch ($options['can_edit']) {
+			case 'edit_dashboard': $options['edit_dashboard_notes'] = array_merge($options['edit_dashboard_notes'], array('administrator')); break;
+			case 'edit_pages': $options['edit_dashboard_notes'] = array_merge($options['edit_dashboard_notes'], array('editor')); break;
+			case 'publish_posts': $options['edit_dashboard_notes'] = array_merge($options['edit_dashboard_notes'], array('author')); break;
+			case 'edit_posts': $options['edit_dashboard_notes'] = array_merge($options['edit_dashboard_notes'], array('contributor')); break;
+			case 'read': $options['edit_dashboard_notes'] = array_merge($options['edit_dashboard_notes'], array('subscriber')); break;
+		}
+		unset($options['can_edit']);
+	}
+/**/
 	return array_merge( $defaults, $options );
 }
 
