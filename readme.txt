@@ -37,6 +37,11 @@ If you would like to send me a translation, please write to me through <a href="
 1. The notepad
 1. The widget options
 
+== Upgrade Notice ==
+
+= 1.39 =
+* Fixed a bug in which users' permissions could not be removed once given. If this has affected you, reset the roles by saving the widget options once more after you have upgraded to this version.
+
 == Changelog ==
 
 = 1.39 =
