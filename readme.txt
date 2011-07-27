@@ -2,8 +2,8 @@
 Contributors: sillybean
 Tags: widget, dashboard, notes
 Requires at least: 2.8
-Tested up to: 3.2
-Stable tag: 1.38
+Tested up to: 3.2.1
+Stable tag: 1.39
 
 The very simplest of notepads for your Dashboard. 
 
@@ -39,6 +39,8 @@ If you would like to send me a translation, please write to me through <a href="
 
 == Changelog ==
 
+= 1.39 =
+* Fixed a bug in which users' permissions could not be removed once given.
 = 1.38 =
 * Swedish (se_SV) translation by <a href="http://www.rabatt.se">Rabatt</a>
 * Corrected German translation.

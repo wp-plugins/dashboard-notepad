@@ -4,7 +4,7 @@ Plugin Name: Dashboard Notepad
 Plugin URI: http://sillybean.net/code/wordpress/dashboard-notepad/
 Description: The very simplest of notepads for your Dashboard. Based on <a href="http://www.contutto.com/">Alex G&uuml;nsche's</a> Headache With Pictures. You can use the <code>&lt;?php dashboard_notes(); ?&gt;</code> template tag or the <code>[dashboard_notes]</code> shortcode to display your notes publicly.
 Author: Stephanie Leary
-Version: 1.38
+Version: 1.39
 Author URI: http://sillybean.net/
 Text Domain: dashboard-notepad
 */
@@ -34,12 +34,11 @@ function dashboard_notepad_widget() {
 			else
 				$options['notes'] = stripslashes( wp_filter_post_kses( $_POST['dashboard_notepad'] ) );
 			update_option('dashboard_notepad', $options);
-	} else
-		$dashboard_notepad = htmlspecialchars($options['notes'], ENT_QUOTES);
+	}
 	$form = '<form method="post" action="'.admin_url().'">';
 	$form .= '<textarea id="dashboard_notepad" name="dashboard_notepad" rows="'.(int)$options['notepad_size'].'"';
 	if (!current_user_can('edit_dashboard_notes')) $form.= ' readonly="readonly"';
-	$form .= '>'. $options['notes'].'</textarea>';
+	$form .= '>'. esc_textarea($options['notes']).'</textarea>';
 	if (current_user_can('edit_dashboard_notes')) $form .= '<p><input type="submit" value="' . __('Save Notes', 'dashboard-notepad') . '" class="button widget-control-save"></p> 
 		<input type="hidden" name="dashboard_notepad_submit" value="true" />';
 	$form .= '</form>';
@@ -104,52 +103,58 @@ function dashboard_notepad_widget_options() {
 
 function dashboard_notepad_widget_control() {
 	$options = dashboard_notepad_widget_options();
+	$myroles = get_editable_roles();
 	if ( 'post' == strtolower($_SERVER['REQUEST_METHOD']) && isset( $_POST['widget_id'] ) && 'dashboard_notepad_widget_id' == $_POST['widget_id'] ) {
 		if ( isset($_POST['edit_dashboard_notes']) ) {
 			$options['edit_dashboard_notes'] = $_POST['edit_dashboard_notes'];
-			foreach ( $options['edit_dashboard_notes'] as $role ) {
-				if ($role != 'guest') {
-					$edit_dashboard_notes = get_role( $role );
-					$edit_dashboard_notes ->add_cap( 'edit_dashboard_notes' );
-				}
+			foreach ( $myroles as $name => $role ) {
+				$edit = get_role( $name );
+				if (in_array($name, $options['edit_dashboard_notes']))
+					$edit->add_cap( 'edit_dashboard_notes' );
+				elseif ($edit->has_cap( 'edit_dashboard_notes' ))
+					$edit->remove_cap( 'edit_dashboard_notes' );
 			}
 		}
 		if ( isset($_POST['read_dashboard_notes']) ) {
 			$options['read_dashboard_notes'] = $_POST['read_dashboard_notes'];
-			foreach ( $options['read_dashboard_notes'] as $role ) {
-				if ($role != 'guest') {
-					$edit_dashboard_notes = get_role( $role );
-					$edit_dashboard_notes ->add_cap( 'read_dashboard_notes' );
-				}
+			foreach ( $myroles as $name => $role ) {
+				$read = get_role( $name );
+				if (in_array($name, $options['read_dashboard_notes']))
+					$read->add_cap( 'read_dashboard_notes' );
+				elseif ($read->has_cap( 'read_dashboard_notes' ))
+					$read->remove_cap( 'read_dashboard_notes' );
 			}
 		}
 		if ( isset($_POST['notepad_title']) )
-			$options['notepad_title'] = $_POST['notepad_title'];
+			$options['notepad_title'] = esc_attr($_POST['notepad_title']);
 		if ( isset($_POST['notepad_size']) )
-			$options['notepad_size'] = $_POST['notepad_size'];
-		$options['autop'] = $_POST['autop'];
+			$options['notepad_size'] = (int)$_POST['notepad_size'];
+		if (in_array($_POST['autop'], array('yes', 'no')))
+			$options['autop'] = $_POST['autop'];
+		else $options['autop'] = 'no';
 		update_option( 'dashboard_notepad', $options );
 	}
-	$myroles = get_editable_roles();
 ?>
 	<p><label for="notepad_title"><?php _e( 'Widget title:' , 'dashboard-notepad'); ?></label>
-		<input type="text" id="notepad_title" name="notepad_title" value="<?php echo $options['notepad_title']; ?>" /> &nbsp;&nbsp;&nbsp;
+		<input type="text" id="notepad_title" name="notepad_title" value="<?php esc_attr_e(  $options['notepad_title'] ); ?>" /> &nbsp;&nbsp;&nbsp;
 	<label for="notepad_size"><?php _e( 'Widget height:' , 'dashboard-notepad'); ?></label>
-		<input type="text" id="notepad_size" name="notepad_size" value="<?php echo $options['notepad_size']; ?>" size="4" />	<?php _e( 'lines' , 'dashboard-notepad'); ?>
+		<input type="text" id="notepad_size" name="notepad_size" value="<?php esc_attr_e( $options['notepad_size'] ); ?>" size="4" />	<?php _e( 'lines' , 'dashboard-notepad'); ?>
 	</p>
 	<div class="dashboard-role-column">
     <p><?php _e( 'Users in these roles can <strong>edit</strong> the notes:' , 'dashboard-notepad'); ?></p>
 		<ul>
-			<?php foreach ($myroles as $slug => $role) { ?>
-				<li><label><input type="checkbox" name="edit_dashboard_notes[]" value="<?php echo $slug; ?>" <?php if (in_array($slug, $options['edit_dashboard_notes'])) echo 'checked="checked"'; ?> /> <?php echo $role['name']; ?><label></li>
+			<?php foreach ($myroles as $role) { 
+				$slug = strtolower($role['name']); ?>
+				<li><label><input type="checkbox" name="edit_dashboard_notes[]" value="<?php esc_attr_e($slug); ?>" <?php if (in_array($slug, $options['edit_dashboard_notes'])) echo 'checked="checked"'; ?> /> <?php esc_html_e($role['name']); ?><label></li>
 			<?php } ?>
         </ul>
 	</div>
 	<div class="dashboard-role-column">
     <p><?php _e( 'Users in these roles can <strong>read</strong> the notes:' , 'dashboard-notepad'); ?></p>
 		<ul>
-			<?php foreach ($myroles as $slug => $role) { ?>
-				<li><label><input type="checkbox" name="read_dashboard_notes[]" value="<?php echo $slug; ?>" <?php if (in_array($slug, $options['read_dashboard_notes'])) echo 'checked="checked"'; ?> /> <?php echo $role['name']; ?><label></li>
+			<?php foreach ($myroles as $role) { 
+				$slug = strtolower($role['name']); ?>
+				<li><label><input type="checkbox" name="read_dashboard_notes[]" value="<?php esc_attr_e($slug); ?>" <?php if (in_array($slug, $options['read_dashboard_notes'])) echo 'checked="checked"'; ?> /> <?php esc_html_e($role['name']); ?><label></li>
 			<?php } ?>
             <li><label><input type="checkbox" name="read_dashboard_notes[]" value="guest" <?php if (in_array('guest', $options['read_dashboard_notes'])) echo 'checked="checked"'; ?> /> <?php _e('The Public', 'dashboard-notepad'); ?><label></li>
 		</ul>
@@ -167,8 +172,8 @@ function dashboard_notes() {
 	if (current_user_can('read_dashboard_notes') || in_array('guest', $options['read_dashboard_notes'])) {
 		echo '<div id="dashboard-notes">';
 		if ($options['autop'] == 'yes')
-			echo wpautop($options['notes']);
-		else echo $options['notes'];
+		  echo wpautop(wp_kses_post($options['notes']));
+		else echo wp_kses_post($options['notes']);
 		echo '</div>';
 	}
 }
