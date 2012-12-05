@@ -3,7 +3,7 @@ Contributors: sillybean
 Tags: widget, dashboard, notes
 Donate Link: http://sillybean.net/code/wordpress/dashboard-notepad/
 Requires at least: 2.8
-Tested up to: 3.2.1
+Tested up to: 3.5
 Stable tag: 1.40
 
 The very simplest of notepads for your Dashboard. 
