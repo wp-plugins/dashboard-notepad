@@ -30,7 +30,7 @@ function dashboard_notepad_widget() {
 	$options = dashboard_notepad_widget_options();
 	if (!empty($_POST['dashboard_notepad_submit']) ) {			
 			if ( current_user_can('unfiltered_html') )
-				$options['notes'] =  stripslashes($_POST['dashboard_notepad']);
+				$options['notes'] = stripslashes($_POST['dashboard_notepad']);
 			else
 				$options['notes'] = stripslashes( wp_filter_post_kses( $_POST['dashboard_notepad'] ) );
 			update_option('dashboard_notepad', $options);
@@ -203,6 +203,5 @@ function dashboard_notepad_read_notes( $cap ) {
 }
 
 // i18n
-$plugin_dir = basename(dirname(__FILE__)). '/languages';
-load_plugin_textdomain( 'DashboardNotepad', WP_PLUGIN_DIR.'/'.$plugin_dir, $plugin_dir );
+load_plugin_textdomain( 'DashboardNotepad', '', plugin_dir_path(__FILE__) . '/languages' );
 ?>

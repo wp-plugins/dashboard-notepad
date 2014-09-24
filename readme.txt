@@ -2,9 +2,11 @@
 Contributors: sillybean
 Tags: widget, dashboard, notes
 Donate Link: http://sillybean.net/code/wordpress/dashboard-notepad/
+Text Domain: DashboardNotepad
+Domain Path: /languages
 Requires at least: 2.8
-Tested up to: 3.5
-Stable tag: 1.40
+Tested up to: 4.0
+Stable tag: 1.41
 
 The very simplest of notepads for your Dashboard. 
 
@@ -19,9 +21,12 @@ You can display the contents of your notepad using a template tag and/or shortco
 * Belorussian (be_BY) by <a href="http://fatcow.com">FatCow</a>.
 * Bulgarian (bg_BG) by <a href="http://www.siteground.com/">SiteGround</a>.
 * German (de_DE) by Guido Kerkewitz
+* Italian (it_IT) translation by Francesco Bevivino
 * Romanian (ro_RO) by Web Hosting Geeks (<a href="http://webhostinggeeks.com/">Web
 Geek Sciense</a>
 * Swedish (se_SV) by <a href="http://www.rabatt.se">Rabatt</a>
+* Ukranian (uk_UA) by <a
+href="http://getvoip.com/blog">Michael Yunat</a>
 
 == Translations ==
 
@@ -47,6 +52,10 @@ If you would like to send me a translation, please write to me through <a href="
 
 == Changelog ==
 
+= 1.4.1 =
+* Italian (it_IT) translation by Francesco Bevivino.
+* Ukranian (uk_UA) translation by <a
+href="http://getvoip.com/blog">Michael Yunat</a>
 = 1.40 =
 * Romanian (ro_RO) translation by Web Hosting Geeks.
 = 1.39 =
