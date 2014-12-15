@@ -5,7 +5,7 @@ Donate Link: http://sillybean.net/code/wordpress/dashboard-notepad/
 Text Domain: DashboardNotepad
 Domain Path: /languages
 Requires at least: 2.8
-Tested up to: 4.0
+Tested up to: 4.1
 Stable tag: 1.41
 
 The very simplest of notepads for your Dashboard. 
