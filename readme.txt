@@ -20,7 +20,7 @@ You can display the contents of your notepad using a template tag and/or shortco
 
 * Belorussian (be_BY) by <a href="http://fatcow.com">FatCow</a>.
 * Bulgarian (bg_BG) by <a href="http://www.siteground.com/">SiteGround</a>.
-* Dutch (nl_NL) by Lesley
+* Dutch (nl_NL) by Lesley Edens
 * German (de_DE) by Guido Kerkewitz
 * Italian (it_IT) translation by Francesco Bevivino
 * Romanian (ro_RO) by Web Hosting Geeks (<a href="http://webhostinggeeks.com/">Web
@@ -54,7 +54,7 @@ If you would like to send me a translation, please write to me through <a href="
 == Changelog ==
 
 = 1.42 =
-* Dutch (nl_NL) translation by Lesley
+* Dutch (nl_NL) translation by Lesley Edens
 = 1.41 =
 * Italian (it_IT) translation by Francesco Bevivino.
 * Ukranian (uk_UA) translation by <a
